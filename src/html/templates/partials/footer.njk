@@ -1,0 +1,32 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <ul class="list-inline footer-links">
+          <li class="list-inline-item">
+            <a href="index.php#about">Forside</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="index.php#cv">CV</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="index.php#assignments">Opgaver</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="" data-toggle="modal" data-target="#contactFormModal">Kontakt</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-md-6 text-lg-right text-xs-center mt-3 mt-sm-1">
+        <p class="copyright-text">Sidst opdateret: <time datetime="<?php echo date(" Y-m-d " , getlastmod()) ?>">
+            <?php echo strftime( "%d. %m. %Y", getlastmod() ); ?></time> <br> Copyright ©
+          <?php echo date("Y"); ?> <a href="admin.php" rel="noopener">Nanna Ellegaard</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Scroll to top -->
+<a class="scrolltop fade" title="Til top" href="#about"><svg role="presentation">
+    <use xlink:href="dist/img/icons.svg#icon-angle-up"></use>
+  </svg>
+</a>

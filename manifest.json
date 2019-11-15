@@ -1,0 +1,27 @@
+{
+  "name": "Nanna Ellegaard, cand.it og front-end udvikler",
+  "short_name": "e-nanna.dk",
+  "description": "Nanna Ellegaard, Cand.it i Multimedier og frontend-udvikler med speciale indenfor html5, sass/less, javaScript, jQuery, node.js, git, PHP mv. Se CV og opgaver fra Aarhus Universitet.",
+  "start_url": "/",
+  "display": "standalone",
+  "lang": "da-DK",
+  "background_color": "#d75959",
+  "theme_color": "#d75959",
+  "icons": [
+    {
+      "src": "img/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+      },
+    {
+      "src": "img/icons/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+      }
+  ]
+}

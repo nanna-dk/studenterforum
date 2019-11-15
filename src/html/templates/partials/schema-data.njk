@@ -1,0 +1,40 @@
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "<?php echo siteUrl(); ?>",
+    "name": "Nanna Ellegard, Cand.it i Multimedier",
+    "description": "{{ description }}",
+    "publisher": "Nanna Ellegaard",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "<?php echo siteUrl(); ?>?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+</script>
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Copenhagen, Denmark"
+    },
+    "image": "<?php echo siteUrl(); ?>/img/nanna_ellegaard.jpg",
+    "jobTitle": "Front end developer",
+    "name": "Nanna Ellegaard",
+    "gender": "female",
+    "nationality": "Danish",
+    "owns": {
+      "@type": "Website",
+      "name": "https://www.studenterforum.dk"
+    },
+    "worksFor": {
+      "@type": "EducationalOrganization",
+      "name": "University of Copenhagen, Denmark"
+    },
+    "url": "<?php echo siteUrl(); ?>",
+    "sameAs": ["https://www.facebook.com/nanna.ellegaard", "https://www.linkedin.com/in/nannaellegaard/", "https://plus.google.com/102076494911232201521?rel=author", "https://github.com/nanna-dk/"]
+  }
+</script>

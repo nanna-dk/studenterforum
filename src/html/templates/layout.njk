@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="no-js" lang="da">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="robots" content="{{ index }}">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <meta content="{{ description }}" name="description">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <link rel="mask-icon" href="img/icons/safari-pinned-tab.svg" color="#d75959">
+  <meta name="msapplication-TileColor" content="#d75959">
+  <meta name="theme-color" content="#d75959">
+  <?php include('includes/functions.php'); ?>
+  <!-- <link rel="alternate" href="<?php echo siteUrl(); ?>" hreflang="da"> -->
+  <title>{{ author }}</title>
+  <link href="dist/css/style.min.css" rel="stylesheet">
+  <?php include_once('includes/tracking/analyticsTracking.php'); ?>
+  {% include "partials/schema-data.njk" %}
+</head>
+
+<body>
+  <?php include('includes/downloads/displayInfo.php'); ?>
+  {% include "partials/scrollprocess.njk" %}
+  {% include "partials/topmenu.njk" %}
+  <div class="content">
+    {% block content %} {% endblock %}
+  </div>
+  {% include "partials/modals.njk" %}
+  {% include "partials/footer.njk" %}
+
+  <!-- Scripts: -->
+  <script src="dist/js/script.min.js"></script>
+  <script src="dist/js/svgxuse.min.js" defer></script>
+  </body>
+
+  </html>

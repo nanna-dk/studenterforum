@@ -1,0 +1,146 @@
+{% extends "layout.njk" %}
+
+{{ author }}
+{% set author = "Cand.it i Multimedier og frontend-udvikler" %}
+{{ author }}
+{% block content %}
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <h2>Nannas website</h2>
+          <p>Website tilhørende Nanna Ellegaard. Dette er min interaktive legeplads.<br>
+            <br>Desuden kan man finde mit <a href="#cv">CV</a> og diverse <a href="#assignments">opgaver</a> fra Spansk, Europastudier og Cand.it i Multimedier  - alle sammen skrevet i min tid på Aarhus Universitet.</p>
+          <p>Jeg kan kontaktes via <a href="" data-toggle="modal" data-target="#contactFormModal">kontaktformularen</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="cv" id="cv">
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <h4>Erhvervserfaring</h4>
+          <div class="experience">
+            <ul>
+              <li class="date">Nov. 2015 -</li>
+              <li class="company"><a href="https://www.ku.dk" target="_blank" rel="noopener">Københavns Universitet</a></li>
+              <li class="position">Front-end developer</li>
+            </ul>
+            <ul>
+              <li class="date">Maj 2012 - okt. 2015</li>
+              <li class="company"><a href="https://www.telenor.dk" target="_blank" rel="noopener">Telenor A/S</a></li>
+              <li class="position">Webmaster / front-end developer</li>
+            </ul>
+            <ul>
+              <li class="date">Dec. 2005 - maj 2012</li>
+              <li class="company"><a href="https://www.lumesse.dk" target="_blank" rel="noopener">Lumesse A/S</a> (tidl. StepStone Solutions A/S)</li>
+              <li class="position">Web consultant / web developer</li>
+            </ul>
+            <ul>
+              <li class="date">Dec. 2003 - &infin;</li>
+              <li class="company"><a href="https://www.studenterforum.dk" target="_blank" rel="noopener">Studenterforum.dk</a></li>
+              <li class="position">Medstifter og webansvarlig</li>
+            </ul>
+          </div>
+          <h4>Uddannelse</h4>
+          <div class="experience">
+            <ul>
+              <li class="date">2001 - 2005</li>
+              <li class="company">
+                <a class="no-event">Cand.it i multimedier ved IT-Vest, Aarhus Universitet</a>
+              </li>
+              <li class="position">
+                <a href="includes/downloads/downloads.php?id=10" target="_blank" rel="noopener">
+                  <?php displayTitle(10) ?>
+                </a><br>Oprettet:
+                <?php displayDate(10) ?>.<br> Downloads:
+                <?php displayHits(10) ?>. </li>
+            </ul>
+            <ul>
+              <li class="date">1998 - 2001</li>
+              <li class="company">
+                <a class="no-event">Bachelor i Spansk og Europastudier, Aarhus Universitet</a>
+              </li>
+              <li class="position">Bachelorprojekt: <a href="includes/downloads/downloads.php?id=9" target="_blank" rel="noopener">
+                  <?php displayTitle(9) ?>
+                </a><br>Oprettet:
+                <?php displayDate(9) ?>.<br> Downloads:
+                <?php displayHits(9) ?>. </li>
+            </ul>
+            <ul>
+              <li class="date">1993 - 1996</li>
+              <li class="company">
+                <a class="no-event">Sproglig student ved Svendborg Statsgymasium</a>
+              </li>
+              <li class="position">
+                <ul>
+                  <li>Spansk og engelsk på højniveau.</li>
+                  <li>Billedkunst på mellemniveau.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="assignments" id="assignments">
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xs-12 col-md-5">
+              <h2>Opgaver</h2>
+            </div>
+            <div class="col-xs-12 col-md-7 mt-2 mb-3 mt-md-0">
+              <div class="input-group mb-3">
+                <label class="sr-only-focusable mr-2" for="search" id="search-label">Søg i opgaver</label>
+                <input type="text" class="form-control" id="search" placeholder="Søg efter opgaver..." aria-required="true" aria-label="search-label" aria-labelledby="search-label" required>
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="reset" title="Ryd" id="clearSearch" aria-label="Ryd">X</button>
+                  <button class="btn btn-primary" type="button" id="goSearch" accesskey="s" title="Søg ved tryk på [Alt] + s" aria-label="Søg">Søg</button>
+                </div>
+                <div class="invalid-feedback"> Indtast et eller flere søgeord. </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <p>Opgaverne er ment som inspiration - ikke til copy/paste. :-)<br />Hyppigste søgeord:
+                <?php include('includes/tags/tags.php'); ?>
+              </p>
+              <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-sort-label">Sorter efter: </a></li>
+                <li class="nav-item"><a data-id="title-asc" title="Sortér" href="" class="nav-link sorting">Titel <svg role="presentation">
+                      <use xlink:href="dist/img/icons.svg#icon-angle-up"></use>
+                    </svg></a></li>
+                <li class="nav-item"><a data-id="clicks-asc" title="Sorterer hits faldende" href="" class="nav-link sorting desc">Hits <svg role="presentation">
+                      <use xlink:href="dist/img/icons.svg#icon-angle-up"></use>
+                    </svg></a></li>
+                <li class="nav-item"><a data-id="dates-asc" title="Sortér dato" href="" class="nav-link sorting">Dato <svg role="presentation">
+                      <use xlink:href="dist/img/icons.svg#icon-angle-up"></use>
+                    </svg></a></li>
+                <li class="nav-item"><a data-id="rating-asc" title="Sortér rating" href="" class="nav-link sorting">Rating <svg role="presentation">
+                      <use xlink:href="dist/img/icons.svg#icon-angle-up"></use>
+                    </svg></a></li>
+                    <li class="nav-item">
+                      <label for="categories"><span class="sr-only">Kategorier</span></label>
+                      <select class="form-control form-control-sm" id="categories" aria-label="Søg i kategori">
+                        <option value="0">Alle kategorier</option>
+                        <option value="2">Cand.it i multimedier</option>
+                        <option value="1">Spansk og Europastudier</option>
+                      </select>
+                    </li>
+              </ul>
+            </div>
+          </div>
+          <div id="allAssignments">
+            <?php include ('includes/downloads/allAssignments.php') ?>
+          </div>
+        </div>
+      </div>
+  </section>
+
+{% endblock %}

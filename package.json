@@ -1,0 +1,69 @@
+{
+  "name": "nanna-dk",
+  "version": "1.0.0",
+  "description": "Studenterforum.dk er et websted for studerende på landets Spansk- og Latinamerikastudier. Her kan du downloads opgaver om Spanien, Latinamerika og Brasilien, samt finde relevante links. Formålet med dette site er at inspirere studerende ved at stille universitetsopgaver til rådighed, og at skabe kontakter på tværs af landets Spansk- og Latinamerikastudier.",
+  "keywords": [
+    "css",
+    "sass",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web",
+    "PHP"
+  ],
+  "homepage": "https://www.studenterforum.dk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nanna-dk/studenterforum.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nanna-dk/studenterforum/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nanna Ellegaard",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.7.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.26.7",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-cli": "^2.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "jshint": "^2.10.3",
+    "gulp-minify-inline-json": "^1.3.3",
+    "gulp-notify": "^3.2.0",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-svgmin": "^2.2.0",
+    "gulp-uglify": "^3.0.2",
+    "jshint-stylish": "^2.2.1",
+    "popper.js": "^1.16.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "gulp": "^4.0.2",
+    "install": "^0.13.0",
+    "jquery": "^3.4.1",
+    "pump": "^3.0.0"
+  },
+  "peerDependencies": {
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0"
+  },
+  "private": true,
+  "browserslist": [
+    "last 1 version",
+    "> 1%"
+  ]
+}

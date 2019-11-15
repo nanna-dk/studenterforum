@@ -1,0 +1,43 @@
+# Ignore docs files
+_gh_pages
+_site
+.ruby-version
+
+# Jekyll metadata
+docs/.jekyll-metadata
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.swo
+*.swp
+*.vi
+*.zip
+*~
+
+# OS or Editor folders
+._*
+.cache
+.DS_Store
+Thumbs.db
+.htaccess
+.gitattributes
+
+# Files to ignore
+robots.txt
+sitemap.xml
+sw.js
+
+# Folders to ignore
+vendor
+node_modules
+opgaver
+backup
+includes/cv
+includes/mail
+includes/db.php
+includes/tracking
+includes/test/

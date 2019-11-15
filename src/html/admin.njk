@@ -1,0 +1,102 @@
+{% extends "layout.njk" %}
+
+{% set description = "Administrator - Statistik og oversigt" %}
+{% set author = "Administrator-login" %}
+{% set index = "noindex" %}
+
+{% block content %}
+
+<?php
+include(realpath(__DIR__ . '/includes/db.php'));
+if (isset($_POST['submit'])) {
+    $user = filter_var($_POST["username"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
+    $psw  = filter_var($_POST["password"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_LOW);
+
+    $sql = "SELECT * FROM " . $userTable . " WHERE username = :username LIMIT 1";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':username', $user, PDO::PARAM_STR);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        $result = $stmt->fetchAll();
+        foreach ($result as $row) {
+            $db_username = $row['username'];
+            $db_password = $row['password'];
+        }
+        if (isset($db_username) && $user == $db_username && isset($db_password) && $psw == password_verify($psw, $db_password)) {
+            // PASSWORD PROTECTED AREA STARTS HERE:
+?>
+       <section class="assignments" id="stats">
+          <div class="container">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Statistik</h5>
+                <?php
+                include('includes/stats/stats.php');
+                ?>
+              </div>
+              <div class="card-body">
+                <div id="coords">
+                  <h5 class="card-title">Position</h5>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-secondary" type="button" id="generateCoords">Start</button>
+                    </div>
+                    <label for="generateCoords" class="sr-only">Find koordinater</label>
+                    <input id="geo" type="text" class="form-control" placeholder="Find koordinater" aria-label="Get coordiantes">
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Dev stats for dette website</h5>
+                <div id="gitHubStats"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <?php
+            // PASSWORD PROTECTED AREA ENDS
+        } else {
+            echo '<div class="container p-3"><div class="alert alert-danger" role="alert">Brugernavn og/eller adgangskode er ikke korrekt.</div></div>';
+        }
+    } else {
+        echo '<div class="container p-3"><div class="alert alert-danger" role="alert">Brugernavnet findes ikke - prøv igen.</div></div>';
+    }
+} else {
+    // IF THE FORM WAS NOT SUBMITTED - SHOW FORM:
+?>
+<div class="container px-3">
+  <div class="card">
+    <div class="card-body">
+    <h5 class="card-title">Indtast login</h5>
+      <form method="post" class="mt-sm-4">
+        <div class="form-group row">
+          <label for="username" class="col-sm-3 col-form-label">Brugernavn</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="username" name="username" placeholder="Brugernavn" autofocus required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="password" class="col-sm-3 col-form-label">Adgangskode</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9">
+            <button type="submit" name="submit" class="btn btn-primary mb-2">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<?php
+  // Closing
+  $stmt = null;
+  $pdo  = null;
+}
+?>
+
+{% endblock %}

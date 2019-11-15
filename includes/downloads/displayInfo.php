@@ -96,10 +96,13 @@ function displayFilesize($id) {
   if ($stmt->rowCount() > 0) {
       $result = $stmt->fetchAll();
       foreach ($result as $row) {
-          $file = $row['url'];
-          $filesize = filesize($file);
-          $filesize = round($filesize / 1024 / 1024, 1); // megabytes with 1 digit.
-          echo "$filesize MB";
+          $url = $row['url'];
+          $file = $global_path.$url;
+          if (file_exists($file) || (file_exists($file) && filesize($file) < 5000)) {
+            $filesize = filesize($file);
+            $filesize = round($filesize / 1024 / 1024, 1); // megabytes with 1 digit.
+            echo "$filesize MB";
+        }
       }
   }
   $stmt = null;

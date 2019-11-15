@@ -300,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     getGitHubStats: function () {
       var user = "nanna-dk";
-      var repo = "personal-website";
+      var repo = "studenterforum";
       var gitHubUrl = "https://github.com/" + user + "/" + repo + "/commit/";
       var url = "https://api.github.com/repos/" + user + "/" + repo + "/commits";
 

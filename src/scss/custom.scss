@@ -24,7 +24,7 @@ html {
 }
 
 html {
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -167,7 +167,6 @@ svg {
   }
 }
 
-
 .assignments {
   .card {
     margin-bottom: 1rem;
@@ -196,6 +195,10 @@ svg {
 
     .footer-right {
       float: right;
+
+      & + .footer-right {
+        margin-left: 0.75rem;
+      }
     }
     color: $gray-700;
   }

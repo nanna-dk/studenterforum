@@ -694,7 +694,7 @@ var myCaptcha = null;
 var onReCaptchaLoad = function () {
   if (myCaptcha === null) {
     myCaptcha = grecaptcha.render('recaptcha', {
-      sitekey: '6LdXbXcUAAAAALIJ58R3GYrXGr0vgz6eS_SXuWcS',
+      sitekey: '6LeNus0SAAAAABUtKzqDKANQKrfgz57YIiszkmIt',
       callback: function (response) {
         //console.log(grecaptcha.getResponse(myCaptcha));
       }

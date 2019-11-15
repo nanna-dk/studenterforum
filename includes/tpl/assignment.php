@@ -24,6 +24,9 @@
 
   $content = $row['content'];
   $url = $row['url'];
+
+  // $filesize = filesize($url);
+  // $filesize = round($filesize / 1024 / 1024, 1);
   $clicks = number_format($row['clicks'], 0, '', '.');
   $dates = (date('d. m. Y', strtotime($row['dates'])));
   // Urls containing zip archives require the download attribute and no targets

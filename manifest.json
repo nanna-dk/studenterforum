@@ -1,12 +1,12 @@
 {
-  "name": "Nanna Ellegaard, cand.it og front-end udvikler",
-  "short_name": "e-nanna.dk",
-  "description": "Nanna Ellegaard, Cand.it i Multimedier og frontend-udvikler med speciale indenfor html5, sass/less, javaScript, jQuery, node.js, git, PHP mv. Se CV og opgaver fra Aarhus Universitet.",
+  "name": "Studenterforum.dk",
+  "short_name": "Studenterforum",
+  "description": "Studenterforum.dk er et websted for studerende på landets Spansk- og Latinamerikastudier. Her kan du downloads opgaver om Spanien, Latinamerika og Brasilien, samt finde relevante links. Formålet med dette site er at inspirere studerende ved at stille universitetsopgaver til rådighed, og at skabe kontakter på tværs af landets Spansk- og Latinamerikastudier.",
   "start_url": "/",
   "display": "standalone",
   "lang": "da-DK",
-  "background_color": "#d75959",
-  "theme_color": "#d75959",
+  "background_color": "#708726",
+  "theme_color": "#708726",
   "icons": [
     {
       "src": "img/icons/android-chrome-192x192.png",

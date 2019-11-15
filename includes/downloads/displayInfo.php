@@ -86,4 +86,23 @@ function countDownloads() {
     $stmt = null;
     $pdo = null;
 }
+
+function displayFilesize($id) {
+  include realpath(__DIR__.'/../db.php');
+  $sql = 'SELECT url FROM '.$DBtable.' WHERE id = :id';
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+  $stmt->execute();
+  if ($stmt->rowCount() > 0) {
+      $result = $stmt->fetchAll();
+      foreach ($result as $row) {
+          $file = $row['url'];
+          $filesize = filesize($file);
+          $filesize = round($filesize / 1024 / 1024, 1); // megabytes with 1 digit.
+          echo "$filesize MB";
+      }
+  }
+  $stmt = null;
+  $pdo = null;
+}
 ?>

@@ -55,7 +55,7 @@ function serve(done) {
     host: '127.0.0.1',
     port: 8080,
     open: 'external',
-    proxy: '127.0.0.1:8080/personal-website/',
+    proxy: '127.0.0.1:8080/studenterforum/',
     index: 'index.php',
     online: true,
     notify: false

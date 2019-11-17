@@ -4,6 +4,7 @@ Script to host urls, and display the item based on its ID:
 Usage: /downloads.php?id=x
 */
 include realpath(__DIR__.'/../db.php');
+include realpath(__DIR__.'/../functions.php');
 if (0 !== (int) $_GET['id']) {
     $id = (int) $_GET['id'];
     $sql = 'SELECT id, clicks, url FROM '.$DBtable.' WHERE id = :id';
@@ -13,7 +14,9 @@ if (0 !== (int) $_GET['id']) {
     if ($stmt->rowCount() > 0) {
         $result = $stmt->fetchAll();
         foreach ($result as $row) {
-            header('Location: '.$row['url']);
+            //header('Location: '.$row['url']);
+              $location = $siteUrl.'/opgaver/'.$row['url'];
+              header('location: ' .$location);
         }
 
         // Update counter by one and add a timestamp (plus 1 hour to get correct time zone on remote db)

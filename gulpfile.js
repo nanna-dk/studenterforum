@@ -89,7 +89,7 @@ function styles() {
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(autoprefixer())
-    .pipe(concat("style.min.css"))
+    .pipe(concat("bootstrap.min.css"))
     .pipe(gulp.dest(paths.minCss))
     .pipe(browserSync.stream());
 }
@@ -110,7 +110,7 @@ function scripts() {
   return gulp
     .src(arrays, { sourcemaps: true })
     .pipe(plumber())
-    .pipe(concat("script.min.js"))
+    .pipe(concat("bootstrap.min.js"))
     .pipe(babel())
     .pipe(uglify())
     .pipe(gulp.dest(paths.minJs, { sourcemaps: '.' }))

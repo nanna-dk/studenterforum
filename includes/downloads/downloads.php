@@ -14,21 +14,21 @@ if (0 !== (int) $_GET['id']) {
     if ($stmt->rowCount() > 0) {
         $result = $stmt->fetchAll();
         foreach ($result as $row) {
-            //header('Location: '.$row['url']);
             $location = $siteUrl.'/opgaver/'.$row['url'];
-            //header('location: ' .$location);
-            $mm_type = "application/pdf";
-            header('Pragma: public');
-            header('Expires: 0');
-            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-            header('Cache-Control: public');
-            header('Content-Description: File Transfer');
-            header('Content-Type: '.$mm_type);
-            header('Content-Length: '.(string) (filesize($location)));
-            header('Content-Disposition: attachment; filename="'.basename($location).'"');
-            header("Content-Transfer-Encoding: binary\n");
-            readfile($location); // outputs the content of the file
-            exit();
+            header('Location: ' .$location);
+            //$mm_type = mime_content_type($location);
+            // header('Pragma: public');
+            // header('Expires: 0');
+            // header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            // header('Cache-Control: public');
+            // header('Content-Description: File Transfer');
+            // // header('Content-Type: '.$mm_type);
+            // // header('Content-Length: '.(string) (filesize($location)));
+            // // Enable to force download instead of open:
+            // header('Content-Disposition: attachment; filename="'.basename($location).'"');
+            // header("Content-Transfer-Encoding: binary\n");
+            // readfile($location); // outputs the content of the file
+            //exit();
         }
 
         // Update counter by one and add a timestamp (plus 1 hour to get correct time zone on remote db)

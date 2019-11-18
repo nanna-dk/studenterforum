@@ -696,7 +696,7 @@ var onReCaptchaLoad = function () {
     myCaptcha = grecaptcha.render('recaptcha', {
       sitekey: '6LecPcMUAAAAALt27yc8o725V6zgRjov-7GpLDv6',
       callback: function (response) {
-        //console.log(grecaptcha.getResponse(myCaptcha));
+        console.log(grecaptcha.getResponse(myCaptcha));
       }
     });
   } else {

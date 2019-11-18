@@ -28,7 +28,8 @@
   $file = $global_path.$url;
   if (file_exists($file) || (file_exists($file) && filesize($file) < 5000)) {
     $filesize = filesize($file);
-    $filesize = round($filesize / 1024, 1); // kb with 1 digit.
+    //$filesize = round($filesize / 1024, 1);// kb with 1 digit.
+    $filesize = round($filesize / 1024, 0); 
   }
 
   $clicks = number_format($row['clicks'], 0, '', '.');

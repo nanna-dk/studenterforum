@@ -18,7 +18,8 @@
   <?php include('includes/functions.php'); ?>
   <!-- <link rel="alternate" href="<?php echo siteUrl(); ?>" hreflang="da"> -->
   <title>{{ author }} - universitetsopgacer i spansk og Latinamerikastudier</title>
-  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+  <?php include('includes/db.php'); ?>
+  <link href="dist/css/bootstrap.min.css?v=<?php echo $version_number;?>" rel="stylesheet">
   <?php include_once('includes/tracking/analyticsTracking.php'); ?>
   {% include "partials/schema-data.njk" %}
 </head>
@@ -34,7 +35,7 @@
   {% include "partials/footer.njk" %}
 
   <!-- Scripts: -->
-  <script src="dist/js/bootstrap.min.js"></script>
+  <script src="dist/js/bootstrap.min.js?v=<?php echo $version_number;?>"></script>
   <script src="dist/js/svgxuse.min.js" defer></script>
   </body>
 

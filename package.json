@@ -47,7 +47,6 @@
     "gulp-sass": "^4.0.2",
     "gulp-svgmin": "^2.2.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-version-number": "^0.2.4",
     "jshint": "^2.10.3",
     "jshint-stylish": "^2.2.1",
     "popper.js": "^1.16.0"

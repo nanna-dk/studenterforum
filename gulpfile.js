@@ -66,19 +66,19 @@ function serve(done) {
 function imgMin() {
   return gulp
     .src(res.minImg)
-    // .pipe(svgmin({
-    //     plugins: [{
-    //         cleanupIDs: false
-    //     }, {
-    //         removeUselessDefs: false
-    //     }, {
-    //         removeTitle: false
-    //     }, {
-    //         removeDimensions: false
-    //     }, {
-    //         removeViewBox: false
-    //     }]
-    // }))
+    .pipe(svgmin({
+        plugins: [{
+            cleanupIDs: false
+        }, {
+            removeUselessDefs: false
+        }, {
+            removeTitle: false
+        }, {
+            removeDimensions: false
+        }, {
+            removeViewBox: false
+        }]
+    }))
     .pipe(gulp.dest(paths.minImg));
 }
 

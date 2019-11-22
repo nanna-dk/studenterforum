@@ -29,7 +29,7 @@
   if (file_exists($file) || (file_exists($file) && filesize($file) < 5000)) {
     $filesize = filesize($file);
     //$filesize = round($filesize / 1024, 1);// kb with 1 digit.
-    $filesize = round($filesize / 1024, 0); 
+    $filesize = round($filesize / 1024, 0);
   }
 
   $clicks = number_format($row['clicks'], 0, '', '.');
@@ -47,7 +47,7 @@
   echo '<span class="stars">';
   for ($i = 1; $i <= 5; ++$i):
       echo '<span class="star" data-vote="'.$i.'" title="'.$i.'/5">
-          <svg role="presentation"><use xlink:href="dist/img/icons.svg#icon-star"></use></svg>
+          <svg role="presentation"><use xlink:href="dist/img/icon.svg#icon-star"></use></svg>
         </span>';
   endfor;
   echo '</span>';

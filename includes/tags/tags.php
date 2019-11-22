@@ -29,23 +29,32 @@ if ($stmt->rowCount() > 0) {
 
         // Custom words and their frequency - always include
         $mandatory_words = [
-            'cscw' => 4,
-            'hci' => 3,
-            'opgave' => 4,
+            'Mexico' => 4,
+            'spanien' => 3,
+            'opgave' => 5,
             'nationalisme' => 3,
             'speciale' => 3,
-            'multimedier' => 4,
-            'ETA' => 4,
+            'inkariget' => 4,
+            'universitetsopgave' => 4,
+            'ETA' => 5,
         ];
 
         // Words to filter out
         $remove_words = [
           'disse',
           'spiller',
+          'hvilke',
+          'antages',
+          'således',
+          'søges',
+          'vamos',
           'herunder',
+          'gjorde',
           'hvorfor',
-          'data-target',
-          'data-toggle',
+          'denne',
+          'mellem',
+          'gennem',
+          'hvorledes'
         ];
 
         // Merge the two arrays

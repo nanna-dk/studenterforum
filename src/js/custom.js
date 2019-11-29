@@ -261,25 +261,44 @@ document.addEventListener("DOMContentLoaded", function () {
     sendMsg: function () {
       messages.innerHTML = '<div class="p-2 mb-4 alert alert-info">Vent venligst...</div>';
       var url = 'includes/mail/mail_ajax.php';
-      var formData = NEL.serializeForm(contactform);
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', url, true);
-      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-      xhr.onreadystatechange = function () {
-        if (this.readyState == 4) {
-          if (this.status == 200) {
-            console.log(this.responseText);
-            messages.classList.remove('alert-danger', 'alert-info');
-            messages.classList.add('alert', 'alert-success');
-            messages.innerHTML = this.responseText;
-          } else {
-            messages.classList.remove('alert-success', 'alert-info');
-            messages.classList.add('alert', 'alert-danger');
-            messages.innerHTML = this.responseText;
+      var data, params;
+      grecaptcha.ready(function () {
+        grecaptcha.execute(onReCaptchaLoad, {
+            action: 'homepage'
+          })
+          .then(function (token) {
+            document.getElementById('g-recaptcha-response').value = token;
+            data = {
+              name: document.getElementById('name').value,
+              email: document.getElementById('email').value,
+              message: document.getElementById('msg').value,
+              recaptcha: grecaptcha.getResponse()
+            };
+           params = Object.keys(data).map(function (k) {
+              return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+            }).join('&');
+            //console.log(params);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+              if (this.readyState == 4) {
+                if (this.status == 200) {
+                  //console.log(this.responseText);
+                  messages.classList.remove('alert-danger', 'alert-info');
+                  messages.classList.add('alert', 'alert-success');
+                  messages.innerHTML = this.responseText;
+                } else {
+                  messages.classList.remove('alert-success', 'alert-info');
+                  messages.classList.add('alert', 'alert-danger');
+                  messages.innerHTML = this.responseText;
+                }
+              }
+            };
+            xhr.send(params);
           }
-        }
-      };
-      xhr.send(formData);
+        );
+      });
     },
     clearInput: function () {
       // Clear form fields
@@ -694,10 +713,9 @@ var myCaptcha = null;
 var onReCaptchaLoad = function () {
   if (myCaptcha === null) {
     myCaptcha = grecaptcha.render('recaptcha', {
-      sitekey: '6LecPcMUAAAAALt27yc8o725V6zgRjov-7GpLDv6',
-      callback: function (response) {
-        console.log(grecaptcha.getResponse(myCaptcha));
-      }
+      'sitekey': '6LfF5sQUAAAAAL9QEiFa0Gwa5aWAhLVTA3rmEKVc',
+      'size': 'invisible',
+      callback: onReCaptchaLoad
     });
   } else {
     grecaptcha.reset(myCaptcha);

@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html class="no-js" lang="da">
-
+<?php include('includes/functions.php'); ?>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="robots" content="{{ index }}">
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <meta content="{{ description }}" name="description">
+  <meta property="og:title" content="{{ author }} - universitetsopgacer i spansk og Latinamerikastudier">
+  <meta property="og:image" content="<?php echo siteUrl(); ?>/img/icons/social-article-img.png">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="<?php echo siteUrl(); ?>">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
@@ -15,7 +19,7 @@
   <link rel="mask-icon" href="img/icons/safari-pinned-tab.svg" color="#d75959">
   <meta name="msapplication-TileColor" content="#d75959">
   <meta name="theme-color" content="#d75959">
-  <?php include('includes/functions.php'); ?>
+
   <!-- <link rel="alternate" href="<?php echo siteUrl(); ?>" hreflang="da"> -->
   <title>{{ author }} - universitetsopgacer i spansk og Latinamerikastudier</title>
   <?php include('includes/db.php'); ?>

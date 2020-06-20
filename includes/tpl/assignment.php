@@ -4,7 +4,7 @@
   * Include where needed
   */
   //error_reporting(E_ALL);
-
+  include_once realpath(__DIR__.'/../functions.php');
   $rating = $row['rating'];
   $votes = $row['votes'];
   $avg = (0 == $rating) ? 0 : round(($rating / $votes), 1);
@@ -16,22 +16,18 @@
   // If used in a search - mark search words
   if (isset($_POST['search'])) {
       $search = $_POST['search'];
-      if (!empty($search)) {
-      $title = preg_replace("/($search)/i", '<mark>$1</mark>', $title);
-      $desc = preg_replace("/($search)/i", '<mark>$1</mark>', $desc);
-    }
+      if (! empty($search)) {
+          $title = preg_replace("/($search)/i", '<mark>$1</mark>', $title);
+          $desc = preg_replace("/($search)/i", '<mark>$1</mark>', $desc);
+      }
   }
 
   $content = $row['content'];
   $url = $row['url'];
+
   // File size:
   $file = $global_path.$url;
-  if (file_exists($file) || (file_exists($file) && filesize($file) < 5000)) {
-    $filesize = filesize($file);
-    //$filesize = round($filesize / 1024, 1);// kb with 1 digit.
-    $filesize = round($filesize / 1024, 0);
-  }
-
+  $filesize = formatSizeUnits(filesize($file));
   $clicks = number_format($row['clicks'], 0, '', '.');
   $dates = (date('d. m. Y', strtotime($row['dates'])));
   // Urls containing zip archives require the download attribute and no targets
@@ -47,7 +43,7 @@
   echo '<span class="stars">';
   for ($i = 1; $i <= 5; ++$i):
       echo '<span class="star" data-vote="'.$i.'" title="Klik for at give '.$i.' ud af 5 stemmer">
-          <svg role="presentation"><use xlink:href="dist/img/icon.svg#icon-star"></use></svg>
+          <svg role="presentation"><use xlink:href="dist/img/icons.svg#icon-star"></use></svg>
         </span>';
   endfor;
   echo '</span>';
@@ -56,6 +52,6 @@
   echo '</div>';
   // Rating end
   echo '</div>';
-  echo '<div class="card-footer"><div class="footer-left">Oprettet: '.$dates.'</div><div class="footer-right">Downloads: '.$clicks.'</div><div class="footer-right">Størrelse: '.$filesize .' Kb</div></div>';
+  echo '<div class="card-footer"><div class="footer-left">Oprettet: '.$dates.'</div><div class="footer-right">Downloads: '.$clicks.'</div><div class="footer-right">Størrelse: '.$filesize.'</div></div>';
   echo '</div>';
 ?>

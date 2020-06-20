@@ -14,7 +14,8 @@ $color-red: #D14242;
 $link-color: #004a99;
 $primary-color: #004a99;
 $border-radius: 0.1rem;
-$h2-font-size: $font-size-base * 1.5;
+$h1-font-size: $font-size-base * 1.6;
+$h2-font-size: $font-size-base * 1.4;
 $h4-font-size: $font-size-base * 1.2;
 $scrollIndicatorHeight: 5px;
 
@@ -36,6 +37,46 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+@include media-breakpoint-down(xs) {
+  .jumpbox {
+    display: none;
+  }
+}
+@include media-breakpoint-up(md) {
+  .jump {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    margin: 0;
+    z-index: $zindex-modal-backdrop;
+
+    li {
+      list-style: none;
+      display: block;
+
+      a {
+        display: block;
+        position: absolute;
+        top: -1000px;
+        left: 0;
+        width: 0;
+        height: 0;
+
+        &:focus {
+          color: $white;
+          top: 0;
+          left: 0;
+          z-index: 10;
+          height: auto;
+          width: auto;
+          outline: 1px solid #2c6694;
+        }
+      }
+    }
+  }
+}
 
 .content {
   // Creating sticky footer:
@@ -44,6 +85,11 @@ body {
 
 a {
   color: $link-color;
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: $h1-font-size;
 }
 
 h2 {
@@ -167,6 +213,90 @@ svg {
   }
 }
 
+.experience {
+  overflow: visible;
+  position: relative;
+  padding-left: 24px;
+  margin-left: 7px;
+  border-left: 1px solid;
+  border-image: linear-gradient(to bottom, rgba($black,0) 5%, rgba(100,100,100,1) 20%, rgba(100,100,100,1) 80%, rgba($black,0) 95%) 22 stretch;
+
+  ul {
+    margin-bottom: 23px;
+    padding-left: 0;
+
+    li {
+      @extend .list-unstyled;
+
+      &.date {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+        position: relative;
+        display: block;
+        font-weight: 400;
+        line-height: 1.2em;
+        transition: all 0.25s ease-in-out;
+      }
+
+      &.company {
+        display: block;
+        line-height: 1.2rem;
+
+        a {
+          color: $body-color;
+          position: relative;
+          font-size: 14px;
+          font-weight: 600;
+          transition: all 0.25s ease-in-out;
+
+          &[target="_blank"] {
+            &:after {
+              content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==");
+              margin: 0 3px 0 5px;
+            }
+          }
+
+          &::before {
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            border-radius: 4px;
+            top: 4px;
+            left: -31px;
+            content: "";
+            background: lighten($body-color, 30%);
+          }
+
+          &:hover {
+            color: lighten($gray-700, 10%);
+            text-decoration: none;
+          }
+
+          &.no-event {
+            color: $body-color;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .company {
+        a {
+          &::before {
+            background: $color-red;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cv {
+  h4 {
+    margin-bottom: 15px;
+  }
+}
+
 .assignments {
   .card {
     margin-bottom: 1rem;
@@ -196,7 +326,7 @@ svg {
     .footer-right {
       float: right;
 
-      & + .footer-right {
+      &+.footer-right {
         margin-right: 0.75rem;
       }
     }
@@ -278,6 +408,7 @@ section {
     border: 1px solid $gray-300;
     border-radius: $border-radius;
     padding: 0.2rem 0.4rem;
+    text-decoration: none;
   }
   cursor: pointer;
   margin-right: 0.6rem;

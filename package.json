@@ -27,7 +27,7 @@
   "author": "Studenterforum.dk",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.11.0",
+    "@babel/core": "^7.11.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
     "@babel/preset-env": "^7.11.0",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
@@ -52,7 +52,7 @@
     "popper.js": "^1.16.1"
   },
   "dependencies": {
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.5.1",
     "gulp": "^4.0.2",
     "install": "^0.13.0",
     "jquery": "^3.5.1",
